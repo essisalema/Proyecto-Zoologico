@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pkg1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Sisalema-Santiago
+ */
+public class Insercion {
+   
+    
+    
+    public static void generador(int numeroMultiplo, int tamanio,int[] vect){
+        int vector[]= new int[tamanio];
+        for (int i = 0; i < tamanio; i++) {
+            vector[i]=(int)(Math.random()*100+1);
+            if(vector[i] % numeroMultiplo ==0){
+                vect[i]=vector[i];
+            }else{
+                i--;
+            }
+            
+        }
+        int i=0;
+        while(vect[i]!=0){
+            System.out.println((i+1)+".-"+vect[i]);
+            i++;
+        };
+    }
+    public static void insertar(int []array){
+        Scanner leer = new Scanner(System.in);
+        int k=0;
+        int aum=0;
+        while(array[k]!=0){
+            aum +=1;
+            k++;
+            
+        }
+        System.out.println("Ingrese el numero que va ingresar: ");
+        int numero = leer.nextInt();
+        System.out.println("Ingrese la posicion donde ubicar:");
+        int ubicacion= leer.nextInt();
+        
+        while(array[k]<ubicacion -1 && k<aum){
+            ubicacion++;
+            k++;
+            
+        }
+        for (int i = aum; i >= ubicacion-1; i--) {
+            array[i+1]= array[i];
+            
+        }
+        array[ubicacion-1]=numero;
+        int c=0;
+        while(array[c]!=0){
+            System.out.println((c+1)+".-"+array[c]);
+            c++;
+        }
+    }
+}
+    
