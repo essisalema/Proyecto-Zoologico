@@ -1,0 +1,50 @@
+package com.zoolomania.funcional.control;
+
+import java.util.List;
+
+/**
+ * Interface que representa el contrato de negocio CRUD
+ *
+ * @author Erick Díaz
+ */
+public interface ICrud<T> {
+
+    /**
+     * Método que permite Guardar/Crear un objeto de tipo T
+     * @param registro
+     * @return
+     * @throws MyExcepcion 
+     */
+    public String guardar(T registro) throws MyExcepcion;
+
+    /**
+     * Método que permite actualizar un objeto
+     *
+     * @param registro
+     * @return
+     * @throws MyExcepcion
+     */
+    public String actulizar(T registro) throws MyExcepcion;
+
+    /**
+     * Método que permitirá devolver el estado del objeto a consultar
+     * @param id
+     * @return
+     * @throws NumberFormatException 
+     */
+    public Object buscarConId(short id) throws NumberFormatException;
+
+    /**
+     * Método que permite eliminar un registro a través de su ID
+     * @param registro
+     * @return
+     * @throws MyExcepcion 
+     */
+    public String eliminar(T registro) throws MyExcepcion;
+
+    /**
+     *Método que permite listar con conjuto de objetos
+     * @return 
+     */
+    public List<T> listar();
+}
